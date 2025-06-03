@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simulación de Incendios Forestales</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script defer src="sketch.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div id="canvas-container"></div>
+    <div id="controls">
+      <h2>Ajustes del Bosque</h2>
+      <form id="forestForm">
+        <label for="numRivers">Número de ríos (1 - 10):</label>
+        <input type="number" id="numRivers" name="numRivers" min="1" max="10" value="4" />
+        
+        <label for="probTree">Probabilidad de árbol (0 - 1):</label>
+        <input type="number" step="0.01" id="probTree" name="probTree" min="0" max="1" value="0.7" />
+        
+        <label for="mapSize">Tamaño mapa (celdas):</label>
+        <input type="number" id="mapSize" name="mapSize" min="50" max="300" value="150" disabled />
+        
+        <button type="submit">Generar Bosque</button>
+      </form>
+
+      <h2>Parámetros de Simulación</h2>
+      <form id="simForm">
+        <label for="windDirection">Dirección del viento:</label>
+        <select id="windDirection" name="windDirection">
+          <option value="N">Norte</option>
+          <option value="NE">Noreste</option>
+          <option value="E">Este</option>
+          <option value="SE">Sureste</option>
+          <option value="S" selected>Sur</option>
+          <option value="SW">Suroeste</option>
+          <option value="W">Oeste</option>
+          <option value="NW">Noroeste</option>
+        </select>
+
+        <label for="windSpeed">Velocidad del viento (km/h):</label>
+        <input type="number" id="windSpeed" name="windSpeed" min="0" max="100" value="10" />
+
+        <label for="humidity">Humedad del aire (%):</label>
+        <input type="number" id="humidity" name="humidity" min="0" max="100" value="40" />
+
+        <label for="temperature">Temperatura ambiental (°C):</label>
+        <input type="number" id="temperature" name="temperature" min="-10" max="50" value="25" />
+
+        <button type="submit">Iniciar Simulación</button>
+      </form>
+
+
+
+      
+    </div>
+  </div>
+
+  <div id="legend">
+    <h2>Leyenda del Bosque</h2>
+    <div class="legend-item">
+      <div class="color-box" style="background-color: rgb(0, 100, 255);"></div>
+      <span><strong>Agua</strong> – No inflamable</span>
+    </div>
+    <div class="legend-item">
+      <div class="color-box" style="background-color: rgb(180, 120, 60);"></div>
+      <span><strong>Suelo</strong> – No inflamable</span>
+    </div>
+    <div class="legend-item">
+      <div class="color-box" style="background-color: rgb(34, 139, 34);"></div>
+      <span><strong>Pino</strong> – Inflamabilidad: 0.8</span>
+    </div>
+    <div class="legend-item">
+      <div class="color-box" style="background-color: rgb(60, 179, 113);"></div>
+      <span><strong>Roble</strong> – Inflamabilidad: 0.5</span>
+    </div>
+    <div class="legend-item">
+      <div class="color-box" style="background-color: rgb(0, 100, 0);"></div>
+      <span><strong>Abeto</strong> – Inflamabilidad: 0.7</span>
+    </div>
+    <div class="legend-item">
+      <div class="color-box" style="background-color: rgb(107, 142, 35);"></div>
+      <span><strong>Sauce</strong> – Inflamabilidad: 0.6</span>
+    </div>
+  </div>
+
+  
+</body>
+</html>
